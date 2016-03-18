@@ -1,0 +1,7 @@
+[user]
+	email = movestill@gmail.com
+	name = Tim Gion
+[credential]
+	helper = cache --timeout=7200
+[core]
+	editor = vim
