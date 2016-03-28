@@ -5,6 +5,8 @@ let mapleader = "\<Space>"
 
 :inoremap jj <Esc>
 
+nnoremap <Leader>s :w<Enter>
+
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>j <C-w>j
