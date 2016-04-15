@@ -1,6 +1,14 @@
 [user]
 	email = movestill@gmail.com
 	name = Tim Gion
+[alias]
+    st = status
+    srb = svn rebase
+    sdc = svn dcommit
+    spop = stash pop
+    ci = commit
+    co = checkout
+    ll = log --stat
 [credential]
 	helper = cache --timeout=7200
 [core]
