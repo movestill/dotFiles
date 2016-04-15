@@ -1,6 +1,8 @@
 " Use Vim's settings, instead of Vi's.
 set nocompatible
 
+colorscheme desert
+
 let mapleader = "\<Space>"
 
 :inoremap jj <Esc>
