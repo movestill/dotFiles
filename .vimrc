@@ -31,3 +31,10 @@ set smarttab
 set ignorecase
 " Unless there's a capital letter.
 set smartcase
+
+" Search subfolders.
+set path+=**
+
+" Display all matching files for tab completion.
+set wildmenu
+
