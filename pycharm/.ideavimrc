@@ -1,0 +1,14 @@
+source ~/.vimrc
+
+" Redo leader setup for ideavim.
+let mapleader = " "
+
+nnoremap <Leader>s :w<Enter>
+
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+
+" Copy to system clipboard by default.
+set clipboard+=unnamed

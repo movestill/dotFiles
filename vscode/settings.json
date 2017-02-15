@@ -1,0 +1,72 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindings": [
+        {
+            "before": ["<Leader>", "s"],
+            "after": ["<Enter>"],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<Leader>", "w"],
+            "after": ["<Enter>"],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<Leader>", "p"],
+            "after": ["<Enter>"],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<Leader>", "h"],
+            "after": ["<Enter>"],
+            "commands": [
+                {
+                    "command": "workbench.action.focusPreviousGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<Leader>", "l"],
+            "after": ["<Enter>"],
+            "commands": [
+                {
+                    "command": "workbench.action.focusNextGroup",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.leader": " ",
+    "vim.useSolidBlockCursor": true,
+    "editor.cursorBlinking": "solid",
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [80],
+    "editor.wrappingColumn": 0,
+    "editor.lineNumbers": "on"
+}

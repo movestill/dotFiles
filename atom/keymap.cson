@@ -1,0 +1,44 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * https://atom.io/docs/latest/customizing-atom#customizing-key-bindings
+# * https://atom.io/docs/latest/advanced/keymaps
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+
+#'atom-text-editor.vim-mode.insert-mode':
+#  'j j': 'vim-mode.activate-normal-mode'
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j': 'exit-insert-mode-if-preceded-by-j'
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'space h': 'window:focus-pane-on-left'
+  'space l': 'window:focus-pane-on-right'
+  'space j': 'window:focus-pane-below'
+  'space k': 'window:focus-pane-above'
+  'space s': 'core:save'
+  'space w': 'core:close'
+  'space b': 'fuzzy-finder:toggle-buffer-finder'
+  'space p': 'fuzzy-finder:toggle-file-finder'
+  'space r': 'symbols-view:toggle-file-symbols'
+  'space shift-r': 'symbols-view:toggle-project-symbols'
+  'space t': 'phpunit:current'
+  'space T': 'phpunit:alltests'
+  ':': 'command-palette:toggle'
