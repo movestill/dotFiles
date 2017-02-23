@@ -1,0 +1,16 @@
+[submodule "_vim/vim-pathogen"]
+	path = _vim/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "_vim/bundle/vim-dispatch"]
+	path = _vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "_vim/bundle/YouCompleteMe"]
+	path = _vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "_vim/bundle/omnisharp-vim"]
+	path = _vim/bundle/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim.git
+
