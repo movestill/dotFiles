@@ -40,6 +40,9 @@ set smartcase
 " Search subfolders.
 set path+=**
 
+" Use tree view for file browsing.
+let g:netrw_liststyle=3
+
 " Display all matching files for tab completion.
 set wildmenu
 
@@ -65,7 +68,14 @@ augroup omnisharp_cmds
     " Show type info when cursor stops moving.
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
     autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
-augroup END 
+augroup END
 
 " Delay (ms) before fetching type/symbol info.
 set updatetime=500
+
+" YouCompleteMe: use first python in path for jedi.
+let g:ycm_python_binary_path = 'python'
+
+" YouCompleteMe: compiled with Python2.
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+
