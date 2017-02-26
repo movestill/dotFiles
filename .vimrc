@@ -12,6 +12,8 @@ let mapleader = "\<Space>"
 :inoremap jj <Esc>
 
 nnoremap <Leader>s :w<Enter>
+nnoremap <Leader>w :bd<Enter>
+nnoremap <Leader>p :CtrlP<Enter>
 
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
@@ -51,6 +53,12 @@ set showcmd
 
 set splitbelow
 
+" Always show status line.
+set laststatus=2
+
+" Status line with column and line number.
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
 " Get Code Issues and syntax errors
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
@@ -78,4 +86,7 @@ let g:ycm_python_binary_path = 'python'
 
 " YouCompleteMe: compiled with Python2.
 let g:ycm_server_python_interpreter = '/usr/bin/python'
+
+" CtrlP use system file find.
+let g:ctrlp_user_command = 'find %s -type f'
 
