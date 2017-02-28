@@ -87,6 +87,12 @@ let g:ycm_python_binary_path = 'python'
 " YouCompleteMe: compiled with Python2.
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 
+" YouCompleteMe: jump to definition.
+nnoremap <Leader>gt :YcmCompleter GoToDefinition<Enter>
+
+" YouCompleteMe: show docs.
+nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
+
 " CtrlP use system file find.
 let g:ctrlp_user_command = 'find %s -type f'
 
