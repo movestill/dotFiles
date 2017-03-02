@@ -13,7 +13,7 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>w :bd<Enter>
-nnoremap <Leader>p :CtrlP<Enter>
+nnoremap <Leader>p :CtrlPMixed<Enter>
 
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
@@ -94,5 +94,8 @@ nnoremap <Leader>gt :YcmCompleter GoToDefinition<Enter>
 nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
 
 " CtrlP use system file find.
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_user_command = 'find %s \! -name "*.meta" \! -name "*.swp" -type f'
+
+" Omnisharp-vim complete options.
+set completeopt=longest,menuone,preview
 
