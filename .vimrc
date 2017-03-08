@@ -12,7 +12,7 @@ let mapleader = "\<Space>"
 :inoremap jj <Esc>
 
 nnoremap <Leader>s :w<Enter>
-nnoremap <Leader>w :bd<Enter>
+nnoremap <Leader>w :bp\|bd#<Enter>
 nnoremap <Leader>p :CtrlPMixed<Enter>
 nnoremap <Leader>b :CtrlPBuffer<Enter>
 
