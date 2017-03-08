@@ -14,6 +14,7 @@ let mapleader = "\<Space>"
 nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>w :bd<Enter>
 nnoremap <Leader>p :CtrlPMixed<Enter>
+nnoremap <Leader>b :CtrlPBuffer<Enter>
 
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
