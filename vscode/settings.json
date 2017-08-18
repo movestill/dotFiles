@@ -58,15 +58,29 @@
                     "args": []
                 }
             ]
+        },
+        {
+            "before": ["<Leader>", "g", "t"],
+            "commands": [
+                {
+                    "command": "editor.action.goToDeclaration",
+                    "args": []
+                }
+            ]
         }
     ],
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.leader": " ",
-    "vim.useSolidBlockCursor": true,
     "editor.cursorBlinking": "solid",
-    "editor.renderWhitespace": "boundary",
+    "editor.fontSize": 10,
+    "editor.renderWhitespace": "all",
     "editor.rulers": [80],
-    "editor.wrappingColumn": 0,
-    "editor.lineNumbers": "on"
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.lineNumbers": "relative",
+    "window.zoomLevel": 1,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "editor.autoIndent": true,
+    "workbench.editor.enablePreviewFromQuickOpen":  false
 }
