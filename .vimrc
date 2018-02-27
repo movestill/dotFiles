@@ -22,11 +22,14 @@ nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 
 " Line numbering.
-set nu
+set relativenumber
 
 if exists('+colorcolumn')
     set colorcolumn=80
 endif
+
+" Allow backspacing over tabs/indents.
+set backspace=indent
 
 " Tab settings.
 set tabstop=4
@@ -96,6 +99,9 @@ nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
 
 " CtrlP use system file find.
 let g:ctrlp_user_command = 'find %s \! -name "*.meta" \! -name "*.swp" -type f'
+" Set CtrlP local working directory to that of current file unless it's a 
+" sub-folder of the CWD.
+let g:ctrlp_working_path_mode = 'a'
 
 " Omnisharp-vim complete options.
 set completeopt=longest,menuone,preview
