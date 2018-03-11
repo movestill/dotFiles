@@ -22,6 +22,7 @@ nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 
 " Line numbering.
+set number
 set relativenumber
 
 if exists('+colorcolumn')
