@@ -64,14 +64,21 @@ set laststatus=2
 " Status line with column and line number.
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-" Get Code Issues and syntax errors
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-
 " Don't require save to change buffers.
 set hidden
 
 " Use system clipboard as default register.
 set clipboard=unnamed
+
+" Get code issues and syntax errors from OmniSharp.
+let g:syntastic_cs_checkers = ['code_checker']
+
+let g:OmniSharp_stop_server = 2  " Automatically stop the server on exit.
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_server_use_mono = 1
+let g:OmniSharp_server_path = '/usr/local/bin/OmniSharp/OmniSharp.exe'
+let g:OmniSharp_host = 'http://localhost:2000'
+let g:OmniSharp_timeout = 1
 
 augroup omnisharp_cmds
     autocmd!
@@ -80,7 +87,9 @@ augroup omnisharp_cmds
 
     " Show type info when cursor stops moving.
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<cr>
+    autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<cr>
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
