@@ -13,5 +13,15 @@
 	helper = cache --timeout=7200
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
+[commit]
+	template = ~/.stCommitMsg
+[diff]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
