@@ -26,6 +26,8 @@ nnoremap <Leader>m :-1read ~/dotfiles/_vim/snippets/microns_copyright.txt<Enter>
 nnoremap <Leader>dc :-1read ~/dotfiles/_vim/snippets/csharp_doc.txt<Enter>V3j
 nnoremap <Leader>dp :read ~/dotfiles/_vim/snippets/py_doc.txt<Enter>o
 
+nnoremap <Leader>v :source ~/.vimrc<cr>
+
 " Line numbering.
 set number
 set relativenumber
@@ -95,6 +97,9 @@ augroup omnisharp_cmds
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<cr>
     autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<cr>
     autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <buffer> <Leader>r :OmniSharpRename<cr>
+    autocmd FileType cs nnoremap <buffer> <Leader>os :OmniSharpStopServer<cr>
+    autocmd FileType cs nnoremap <buffer> <Leader>og :OmniSharpStartServer<cr>
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
@@ -117,6 +122,7 @@ let g:ctrlp_user_command = 'find %s \! -name "*.meta" \! -name "*.swp" -type f'
 " Set CtrlP local working directory to that of current file unless it's a 
 " sub-folder of the CWD.
 let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_by_filename = 1
 
 " Omnisharp-vim complete options.
 set completeopt=longest,menuone,preview
