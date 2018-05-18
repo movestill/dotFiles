@@ -21,6 +21,10 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 
+nnoremap <Leader>m :-1read ~/dotfiles/_vim/snippets/microns_copyright.txt<Enter>14j
+nnoremap <Leader>dc :-1read ~/dotfiles/_vim/snippets/csharp_doc.txt<Enter>V3j
+nnoremap <Leader>dp :read ~/dotfiles/_vim/snippets/py_doc.txt<Enter>o
+
 " Line numbering.
 set number
 set relativenumber
