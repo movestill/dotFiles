@@ -15,6 +15,7 @@ nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>w :bp\|bd#<Enter>
 nnoremap <Leader>p :CtrlPMixed<Enter>
 nnoremap <Leader>b :CtrlPBuffer<Enter>
+nnoremap <Leader>n :set relativenumber!<Enter>
 
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
