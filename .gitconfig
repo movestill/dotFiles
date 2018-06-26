@@ -9,6 +9,8 @@
     ci = commit
     co = checkout
     ll = log --stat
+    bc = bundle create
+    su = submodule update
 [credential]
 	helper = cache --timeout=7200
 [core]
