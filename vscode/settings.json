@@ -8,7 +8,7 @@
             "after": ["<Esc>"]
         }
     ],
-    "vim.otherModesKeyBindings": [
+    "vim.normalModeKeyBindings": [
         {
             "before": ["<Leader>", "s"],
             "after": ["<Enter>"],
@@ -80,7 +80,6 @@
     "editor.wordWrap": "on",
     "editor.lineNumbers": "relative",
     "window.zoomLevel": 1,
-    "vim.disableAnnoyingNeovimMessage": true,
     "editor.autoIndent": true,
     "workbench.editor.enablePreviewFromQuickOpen":  false
 }

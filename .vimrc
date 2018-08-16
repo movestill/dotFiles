@@ -69,7 +69,7 @@ set splitbelow
 set laststatus=2
 
 " Status line with column and line number.
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%=%{FugitiveStatusline()}\ %-14.(%l,%c%V%)\ %P
 
 " Don't require save to change buffers.
 set hidden
