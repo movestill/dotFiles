@@ -81,5 +81,6 @@
     "editor.lineNumbers": "relative",
     "window.zoomLevel": 1,
     "editor.autoIndent": true,
-    "workbench.editor.enablePreviewFromQuickOpen":  false
+    "workbench.editor.enablePreviewFromQuickOpen":  false,
+    "liveshare.connectionMode": "direct"
 }

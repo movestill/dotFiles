@@ -77,21 +77,14 @@ set hidden
 " Use system clipboard as default register.
 set clipboard=unnamed
 
-" Get code issues and syntax errors from OmniSharp.
-let g:syntastic_cs_checkers = ['code_checker']
+let g:ale_linters = {'cs': ['OmniSharp']}
 
 let g:OmniSharp_stop_server = 2  " Automatically stop the server on exit.
-let g:OmniSharp_server_type = 'roslyn'
 let g:OmniSharp_server_use_mono = 1
-let g:OmniSharp_server_path = '/usr/local/bin/OmniSharp/OmniSharp.exe'
-let g:OmniSharp_host = 'http://localhost:2000'
-let g:OmniSharp_timeout = 1
+let g:OmniSharp_timeout = 2
 
 augroup omnisharp_cmds
     autocmd!
-    " Automatic syntax check on events (TextChanged requires >= vim 7.4).
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-
     " Show type info when cursor stops moving.
     autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
     autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<cr>
