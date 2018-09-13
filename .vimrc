@@ -77,7 +77,7 @@ set hidden
 " Use system clipboard as default register.
 set clipboard=unnamed
 
-let g:ale_linters = {'cs': ['OmniSharp']}
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls']}
 
 let g:OmniSharp_stop_server = 2  " Automatically stop the server on exit.
 let g:OmniSharp_server_use_mono = 1
