@@ -5,14 +5,16 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-colorscheme desert
+" colorscheme desert
+colorscheme zellner
 
 let mapleader = "\<Space>"
 
 :inoremap jj <Esc>
 
+nnoremap <Leader>q :q<Enter>
 nnoremap <Leader>s :w<Enter>
-nnoremap <Leader>w :bp\|bd#<Enter>
+nnoremap <Leader>w :b#\|bd#<Enter>
 nnoremap <Leader>p :CtrlPMixed<Enter>
 nnoremap <Leader>b :CtrlPBuffer<Enter>
 nnoremap <Leader>n :set relativenumber!<Enter>
@@ -77,11 +79,20 @@ set hidden
 " Use system clipboard as default register.
 set clipboard=unnamed
 
-let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls']}
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEError ctermbg=LightGrey
 
 let g:OmniSharp_stop_server = 2  " Automatically stop the server on exit.
 let g:OmniSharp_server_use_mono = 1
 let g:OmniSharp_timeout = 2
+
+augroup yaml_cmds
+    autocmd!
+    autocmd FileType yaml setlocal tabstop=2
+    autocmd FileType yaml setlocal shiftwidth=2
+    autocmd FileType yaml setlocal softtabstop=2
+augroup END
 
 augroup omnisharp_cmds
     autocmd!
@@ -95,6 +106,24 @@ augroup omnisharp_cmds
     autocmd FileType cs nnoremap <buffer> <Leader>og :OmniSharpStartServer<cr>
 augroup END
 
+augroup javascript_cmds
+    autocmd!
+    autocmd FileType javascript setlocal tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2
+    autocmd FileType javascript setlocal softtabstop=2
+augroup END
+
+augroup typescript_cmds
+    autocmd!
+    " Show type info when cursor stops moving.
+    autocmd FileType typescript setlocal tabstop=2
+    autocmd FileType typescript setlocal shiftwidth=2
+    autocmd FileType typescript setlocal softtabstop=2
+    autocmd FileType typescript nnoremap <buffer> gd :TsuDefinition<cr>
+    autocmd FileType typescript nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+    autocmd FileType typescript nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
+augroup END
+
 " Delay (ms) before fetching type/symbol info.
 set updatetime=500
 
@@ -102,7 +131,7 @@ set updatetime=500
 let g:ycm_python_binary_path = 'python'
 
 " YouCompleteMe: compiled with Python2.
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+"let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 " YouCompleteMe: jump to definition.
 nnoremap <Leader>gt :YcmCompleter GoToDefinition<Enter>
@@ -111,12 +140,22 @@ nnoremap <Leader>gt :YcmCompleter GoToDefinition<Enter>
 nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
 
 " CtrlP use system file find.
-let g:ctrlp_user_command = 'find %s \! -name "*.meta" \! -name "*.swp" -type f'
+let g:ctrlp_user_command = 'find %s -not -path "*/.git/*" -not -path "*/node_modules/*" \! -name "*.meta" \! -name "*.swp" -type f'
 " Set CtrlP local working directory to that of current file unless it's a 
 " sub-folder of the CWD.
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_by_filename = 1
 
+if has('python')
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" else
+"     echo 'No Python for pymatcher to use.'
+endif
+
+let g:ctrlp_lazy_update = 350
+let g:ctrlp_clear_cache_on_exit = 0
+
 " Omnisharp-vim complete options.
 set completeopt=longest,menuone,preview
 
+set wildignore+=*/.git/*,*.swp

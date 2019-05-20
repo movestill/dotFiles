@@ -23,3 +23,12 @@
 [submodule "_vim/bundle/ale"]
 	path = _vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "_vim/bundle/ctrlp-py-matcher"]
+	path = _vim/bundle/ctrlp-py-matcher
+	url = https://github.com/felikz/ctrlp-py-matcher
+[submodule "_vim/bundle/typescript-vim"]
+	path = _vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "_vim/bundle/tsuquyomi"]
+	path = _vim/bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
