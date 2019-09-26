@@ -1,5 +1,6 @@
 " Use Vim's settings, instead of Vi's.
 set nocompatible
+set encoding=utf-8
 
 execute pathogen#infect()
 syntax on
@@ -79,7 +80,12 @@ set hidden
 " Use system clipboard as default register.
 set clipboard=unnamed
 
-let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
+" let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver', 'eslint']}
+let g:ale_fixers = {
+\ '*': ['trim_whitespace'],
+\ 'typescript': ['eslint'],
+\}
 highlight ALEWarning ctermbg=DarkMagenta
 highlight ALEError ctermbg=LightGrey
 
@@ -140,7 +146,8 @@ nnoremap <Leader>gt :YcmCompleter GoToDefinition<Enter>
 nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
 
 " CtrlP use system file find.
-let g:ctrlp_user_command = 'find %s -not -path "*/.git/*" -not -path "*/node_modules/*" \! -name "*.meta" \! -name "*.swp" -type f'
+" let g:ctrlp_user_command = 'find %s -not -path "*/.git/*" -not -path "*/node_modules/*" \! -name "*.meta" \! -name "*.swp" -type f'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Set CtrlP local working directory to that of current file unless it's a 
 " sub-folder of the CWD.
 let g:ctrlp_working_path_mode = 'a'

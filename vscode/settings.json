@@ -82,5 +82,7 @@
     "window.zoomLevel": 1,
     "editor.autoIndent": true,
     "workbench.editor.enablePreviewFromQuickOpen":  false,
-    "liveshare.connectionMode": "direct"
+    "liveshare.connectionMode": "direct",
+    "workbench.colorTheme": "Default Light+",
+    "liveshare.featureSet": "insiders"
 }
