@@ -2,6 +2,10 @@
 set nocompatible
 set encoding=utf-8
 
+" Allow resizing splits via the mouse from normal mode.
+set mouse=n
+set ttymouse=xterm2
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
