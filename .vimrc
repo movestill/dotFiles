@@ -85,7 +85,8 @@ set hidden
 set clipboard=unnamed
 
 " let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
-let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver', 'eslint']}
+" let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver', 'eslint']}
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['eslint']}
 let g:ale_fixers = {
 \ '*': ['trim_whitespace'],
 \ 'typescript': ['eslint'],
@@ -125,13 +126,17 @@ augroup END
 
 augroup typescript_cmds
     autocmd!
-    " Show type info when cursor stops moving.
     autocmd FileType typescript setlocal tabstop=2
     autocmd FileType typescript setlocal shiftwidth=2
     autocmd FileType typescript setlocal softtabstop=2
     autocmd FileType typescript nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescript nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescript nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
+augroup END
+
+augroup python_cmds
+    autocmd!
+    autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
@@ -152,10 +157,10 @@ nnoremap <Leader>gd :YcmCompleter GetDoc<Enter>
 " CtrlP use system file find.
 " let g:ctrlp_user_command = 'find %s -not -path "*/.git/*" -not -path "*/node_modules/*" \! -name "*.meta" \! -name "*.swp" -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" Set CtrlP local working directory to that of current file unless it's a 
-" sub-folder of the CWD.
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_by_filename = 1
+" Set CtrlP local working directory to nearest ancestor that has a .git or use
+" current file's folder unless it's a sub-folder of the CWD.
+let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_by_filename = 1
 
 if has('python')
     let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
@@ -169,4 +174,10 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Omnisharp-vim complete options.
 set completeopt=longest,menuone,preview
 
-set wildignore+=*/.git/*,*.swp
+set wildignore+=*/.git/*,*.swp,*/node_modules/*
+"
+" Add all plugins to runtime path.
+packloadall
+
+" Load help tags.
+silent! helptags ALL

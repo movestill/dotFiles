@@ -32,3 +32,9 @@
 [submodule "_vim/bundle/tsuquyomi"]
 	path = _vim/bundle/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
+[submodule "_vim/_vim/bundle/vim-python-pep8-indent"]
+	path = _vim/_vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule "_vim/bundle/vim-python-pep8-indent"]
+	path = _vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git

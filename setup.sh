@@ -10,3 +10,4 @@ ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/.tmux.conf ~/.tmux.conf
 ln -s $DIR/.gitconfig ~/.gitconfig
 ln -s $DIR/_vim ~/.vim
+ln -s $DIR/pycharm/.ideavimrc ~/.ideavimrc
