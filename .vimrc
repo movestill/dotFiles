@@ -86,10 +86,11 @@ set clipboard=unnamed
 
 " let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
 " let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver', 'eslint']}
-let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['eslint']}
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['eslint'], 'typescriptreact': ['eslint']}
 let g:ale_fixers = {
 \ '*': ['trim_whitespace'],
 \ 'typescript': ['eslint'],
+\ 'typescriptreact': ['eslint'],
 \}
 highlight ALEWarning ctermbg=DarkMagenta
 highlight ALEError ctermbg=LightGrey
@@ -132,11 +133,26 @@ augroup typescript_cmds
     autocmd FileType typescript nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescript nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescript nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
+    autocmd FileType typescript setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
+augroup END
+
+augroup typescriptreact_cmds
+    autocmd!
+    autocmd FileType typescriptreact setlocal tabstop=2
+    autocmd FileType typescriptreact setlocal shiftwidth=2
+    autocmd FileType typescriptreact setlocal softtabstop=2
+    " Don't know why this needs to be explicitly set for TSX files now.
+    autocmd FileType typescriptreact setlocal autoindent
+    autocmd FileType typescriptreact nnoremap <buffer> gd :TsuDefinition<cr>
+    autocmd FileType typescriptreact nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+    autocmd FileType typescriptreact nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
+    autocmd FileType typescriptreact setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
 augroup END
 
 augroup python_cmds
     autocmd!
     autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
+    autocmd FileType python setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
