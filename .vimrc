@@ -13,6 +13,14 @@ filetype plugin indent on
 " colorscheme desert
 colorscheme zellner
 
+"vimdiff & gvimdiff ('gui')
+"WARNING: MUST go AFTER 'syntax enable' or it will be overriden!
+"NOTE: 'fg' is basically TEXT color & 'bg' is the HIGHLIGHTING color
+hi DiffAdd          cterm=none  ctermfg=Black   ctermbg=Green   guifg=NONE  guibg=#c5ebc0   gui=none
+hi DiffChange       cterm=none  ctermfg=none    ctermbg=Cyan    guifg=NONE  guibg=#ffd890   gui=none
+hi DiffDelete       cterm=none  ctermfg=none    ctermbg=Grey    guifg=NONE  guibg=#e6eee0   gui=none
+hi DiffText         cterm=bold  ctermfg=Black   ctermbg=Cyan    guifg=NONE  guibg=#ffe8bc   gui=bold
+
 let mapleader = "\<Space>"
 
 :inoremap jj <Esc>
@@ -86,12 +94,15 @@ set clipboard=unnamed
 
 " let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver']}
 " let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['tsserver', 'eslint']}
-let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['pyls'], 'typescript': ['eslint'], 'typescriptreact': ['eslint']}
+" Removed python-language-server (now python-lsp-server) in favor of just running flake8 by itself.
+let g:ale_linters = {'cs': ['OmniSharp'], 'python': ['flake8'], 'typescript': ['eslint'], 'typescriptreact': ['eslint']}
 let g:ale_fixers = {
 \ '*': ['trim_whitespace'],
 \ 'typescript': ['eslint'],
 \ 'typescriptreact': ['eslint'],
 \}
+let g:ale_python_pyls_executable = 'pylsp'
+let g:ale_python_flake8_options = '--max-line-length=120'
 highlight ALEWarning ctermbg=DarkMagenta
 highlight ALEError ctermbg=LightGrey
 
