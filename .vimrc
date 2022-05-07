@@ -170,7 +170,7 @@ augroup END
 set updatetime=500
 
 " YouCompleteMe: use first python in path for jedi.
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 
 " YouCompleteMe: compiled with Python2.
 "let g:ycm_server_python_interpreter = '/usr/bin/python'
