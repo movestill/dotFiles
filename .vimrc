@@ -157,13 +157,13 @@ augroup typescriptreact_cmds
     autocmd FileType typescriptreact nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
-    autocmd FileType typescriptreact setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
+    autocmd FileType typescriptreact setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
 augroup END
 
 augroup python_cmds
     autocmd!
     autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
-    autocmd FileType python setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
+    autocmd FileType python setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
