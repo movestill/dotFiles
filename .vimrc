@@ -11,7 +11,8 @@ syntax on
 filetype plugin indent on
 
 " colorscheme desert
-colorscheme zellner
+" colorscheme zellner
+colorscheme industry
 
 "vimdiff & gvimdiff ('gui')
 "WARNING: MUST go AFTER 'syntax enable' or it will be overriden!
@@ -164,6 +165,7 @@ augroup python_cmds
     autocmd!
     autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
     autocmd FileType python setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
+    autocmd FileType python ab ipdb import pdb; pdb.set_trace()
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
