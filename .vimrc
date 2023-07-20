@@ -75,6 +75,8 @@ let g:netrw_liststyle=3
 
 " Display all matching files for tab completion.
 set wildmenu
+" Use pop up menu.
+set wildoptions=pum
 
 " Show keystrokes in status line in normal mode.
 set showcmd
@@ -145,7 +147,7 @@ augroup typescript_cmds
     autocmd FileType typescript nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescript nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescript nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
-    autocmd FileType typescript setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
+    autocmd FileType typescript setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules,.next}\ $*\ /dev/null
 augroup END
 
 augroup typescriptreact_cmds
@@ -158,7 +160,7 @@ augroup typescriptreact_cmds
     autocmd FileType typescriptreact nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
-    autocmd FileType typescriptreact setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,node_modules}\ $*\ /dev/null
+    autocmd FileType typescriptreact setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,node_modules,.next}\ $*\ /dev/null
 augroup END
 
 augroup python_cmds
@@ -166,6 +168,7 @@ augroup python_cmds
     autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
     autocmd FileType python setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
     autocmd FileType python ab ipdb import pdb; pdb.set_trace()
+    autocmd FileType python ab inm if __name__ == "__main__":
 augroup END
 
 " Delay (ms) before fetching type/symbol info.
@@ -203,7 +206,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Omnisharp-vim complete options.
 set completeopt=longest,menuone,preview
 
-set wildignore+=*/.git/*,*.swp,*/node_modules/*
+set wildignore+=*/.git/*,*.swp,*.swo,*/node_modules/*
 "
 " Add all plugins to runtime path.
 packloadall

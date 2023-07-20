@@ -1,100 +1,106 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "python.analysis.extraPaths": ["~/workspace/cerberus-flask-server/cws"],
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "vim.insertModeKeyBindings": [
+  "python.analysis.extraPaths": ["~/workspace/cerberus-flask-server/cws"],
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<Leader>", "s"],
+      "after": ["<Enter>"],
+      "commands": [
         {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
+          "command": "workbench.action.files.save",
+          "args": []
         }
-    ],
-    "vim.normalModeKeyBindings": [
-        {
-            "before": ["<Leader>", "s"],
-            "after": ["<Enter>"],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<Leader>", "w"],
-            "after": ["<Enter>"],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<Leader>", "p"],
-            "after": ["<Enter>"],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpen",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<Leader>", "h"],
-            "after": ["<Enter>"],
-            "commands": [
-                {
-                    "command": "workbench.action.focusPreviousGroup",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<Leader>", "l"],
-            "after": ["<Enter>"],
-            "commands": [
-                {
-                    "command": "workbench.action.focusNextGroup",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["<Leader>", "g", "t"],
-            "commands": [
-                {
-                    "command": "editor.action.goToDeclaration",
-                    "args": []
-                }
-            ]
-        }
-    ],
-    "vim.useCtrlKeys": true,
-    "vim.useSystemClipboard": true,
-    "vim.leader": " ",
-    "editor.cursorBlinking": "solid",
-    "editor.fontSize": 10,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [80],
-    "editor.minimap.enabled": false,
-    "editor.wordWrap": "on",
-    "editor.lineNumbers": "relative",
-    "window.zoomLevel": 2,
-    "editor.autoIndent": "advanced",
-    "workbench.editor.enablePreviewFromQuickOpen":  false,
-    "liveshare.connectionMode": "direct",
-    "liveshare.featureSet": "insiders",
-    "vim.visualModeKeyBindingsNonRecursive": [
-    
-    ],
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "python.languageServer": "Pylance",
-    "explorer.confirmDragAndDrop": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+      ]
     },
-    "git.autofetch": true,
-    "python.pythonPath": "/Users/giontc1/.virtualenvs/microns/bin/python",
-    "security.workspace.trust.untrustedFiles": "open"
+    {
+      "before": ["<Leader>", "w"],
+      "after": ["<Enter>"],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<Leader>", "p"],
+      "after": ["<Enter>"],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<Leader>", "h"],
+      "after": ["<Enter>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusPreviousGroup",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<Leader>", "l"],
+      "after": ["<Enter>"],
+      "commands": [
+        {
+          "command": "workbench.action.focusNextGroup",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<Leader>", "g", "t"],
+      "commands": [
+        {
+          "command": "editor.action.goToDeclaration",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.useCtrlKeys": true,
+  "vim.useSystemClipboard": true,
+  "vim.leader": " ",
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 10,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.lineNumbers": "relative",
+  "editor.autoIndent": "advanced",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "liveshare.connectionMode": "direct",
+  "liveshare.featureSet": "insiders",
+  "vim.visualModeKeyBindingsNonRecursive": [],
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "python.languageServer": "Pylance",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "git.autofetch": true,
+  "python.pythonPath": "/Users/giontc1/.virtualenvs/microns/bin/python",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.scrollback": 10000,
+  "git.confirmSync": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.acceptSuggestionOnEnter": "off",
+  "python.defaultInterpreterPath": "/Users/giontc1/.virtualenvs/save-s3-logs/bin/python",
+  "git.ignoreMissingGitWarning": true,
+  "window.zoomLevel": 2
 }
