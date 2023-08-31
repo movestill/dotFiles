@@ -4,7 +4,8 @@ set encoding=utf-8
 
 " Allow resizing splits via the mouse from normal mode.
 set mouse=n
-set ttymouse=xterm2
+" This needs to be disabled in macOs Ventura.
+" set ttymouse=xterm2
 
 execute pathogen#infect()
 syntax on
