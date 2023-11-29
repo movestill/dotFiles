@@ -148,7 +148,7 @@ augroup typescript_cmds
     autocmd FileType typescript nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescript nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescript nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
-    autocmd FileType typescript setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules,.next}\ $*\ /dev/null
+    autocmd FileType typescript setlocal grepprg=grep\ -n\ -r\ --exclude-dir={.git,node_modules,.next,reports}\ $*\ /dev/null
 augroup END
 
 augroup typescriptreact_cmds
@@ -161,16 +161,60 @@ augroup typescriptreact_cmds
     autocmd FileType typescriptreact nnoremap <buffer> gd :TsuDefinition<cr>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
     autocmd FileType typescriptreact nnoremap <buffer> <Leader>r :TsuRenameSymbol<cr>
-    autocmd FileType typescriptreact setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,node_modules,.next}\ $*\ /dev/null
+    autocmd FileType typescriptreact setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,node_modules,.next,reports}\ $*\ /dev/null
 augroup END
 
 augroup python_cmds
     autocmd!
     autocmd FileType python nnoremap <buffer> gd :YcmCompleter GoToDefinition<cr>
-    autocmd FileType python setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git}\ $*\ /dev/null
+    autocmd FileType python setlocal grepprg=grep\ -I\ -n\ -r\ --exclude-dir={.git,.mypy_cache,.aws-sam}\ $*\ /dev/null
     autocmd FileType python ab ipdb import pdb; pdb.set_trace()
     autocmd FileType python ab inm if __name__ == "__main__":
 augroup END
+
+augroup orca_fe_cmds
+    autocmd!
+    autocmd BufNewFile,BufRead ~/Documents/orca/orca/*.tsx call SetupOrcaSaveActions()
+    autocmd BufNewFile,BufRead ~/Documents/orca/orca/*.ts call SetupOrcaSaveActions()
+augroup END
+
+augroup save_s3_access_logs_cmds
+    autocmd!
+    autocmd BufNewFile,BufRead ~/Documents/MICrONS/save-s3-access-logs/*.py call SetupFixOnSave()
+augroup END
+
+augroup cerberus_python
+    autocmd!
+    autocmd BufNewFile,BufRead ~/Documents/iamd/cerberus-flask-server/*.py call BlackOnSave()
+augroup END
+
+augroup cerberus_ts
+    autocmd!
+    autocmd BufNewFile,BufRead ~/Documents/iamd/cerberus-web-frontend/*.ts call EslintOnSave()
+    autocmd BufNewFile,BufRead ~/Documents/iamd/cerberus-web-frontend/*.tsx call EslintOnSave()
+augroup END
+
+function! SetupOrcaSaveActions()
+    let b:ale_fixers = ['prettier', 'eslint']
+    let b:ale_fix_on_save = 1
+    setlocal autoread
+endfunction
+
+function! BlackOnSave()
+    let b:ale_fixers = { 'python': ['black'] }
+    let b:ale_fix_on_save = 1
+    setlocal autoread
+endfunction
+
+function! EslintOnSave()
+    let b:ale_fixers = {
+    \ '*': ['trim_whitespace'],
+    \ 'typescript': ['eslint'],
+    \ 'typescriptreact': ['eslint'],
+    \}
+    let b:ale_fix_on_save = 1
+    setlocal autoread
+endfunction
 
 " Delay (ms) before fetching type/symbol info.
 set updatetime=500
