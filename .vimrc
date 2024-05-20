@@ -7,6 +7,20 @@ set mouse=n
 " This needs to be disabled in macOs Ventura.
 " set ttymouse=xterm2
 
+let s:VIMROOT = $HOME."/.vim"
+" Create necessary folders if they don't already exist.
+if exists("*mkdir")
+    silent! call mkdir(s:VIMROOT, "p")
+    silent! call mkdir(s:VIMROOT."/swap", "p")
+    silent! call mkdir(s:VIMROOT."/undo", "p")
+    silent! call mkdir(s:VIMROOT."/backup", "p")
+endif
+
+" Double slash means make filenames unique.
+let &backupdir=s:VIMROOT.'/backup//'
+let &directory=s:VIMROOT.'/swap//'
+let &undodir=s:VIMROOT.'/undo//'
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -108,7 +122,7 @@ let g:ale_fixers = {
 let g:ale_python_pyls_executable = 'pylsp'
 let g:ale_python_flake8_options = '--max-line-length=120'
 highlight ALEWarning ctermbg=DarkMagenta
-highlight ALEError ctermbg=LightGrey
+highlight ALEError ctermbg=DarkGrey
 
 let g:OmniSharp_stop_server = 2  " Automatically stop the server on exit.
 let g:OmniSharp_server_use_mono = 1
@@ -180,7 +194,7 @@ augroup END
 
 augroup save_s3_access_logs_cmds
     autocmd!
-    autocmd BufNewFile,BufRead ~/Documents/MICrONS/save-s3-access-logs/*.py call SetupFixOnSave()
+    autocmd BufNewFile,BufRead ~/Documents/MICrONS/save-s3-access-logs/*.py call BlackOnSave()
 augroup END
 
 augroup cerberus_python
