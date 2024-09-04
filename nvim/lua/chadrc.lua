@@ -5,22 +5,37 @@
 
 local M = {}
 
+M.stbufnr = function()
+  return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+end
+
 M.ui = {
-  theme = "dark_horizon",
+  theme = "tokyodark",
   statusline = {
-    -- theme = "vscode",
     separator_style = "arrow",
+    order = { "mode", "file", "modified", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = {
+      modified = function()
+        local modified = ""
+        if vim.api.nvim_buf_get_option(M.stbufnr(), "modified") then
+          modified = "%#StText# [+]"
+        end
+        return modified
+      end,
+
       cursor = function()
         return "%#St_pos_sep#" .. "" .. "%#St_pos_icon# %#StText# Ln %l, Col %c "
       end,
     },
   },
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    Visual = {
+      bg = { "blue", 5 },
+    },
+    -- 	Comment = { italic = true },
+    -- 	["@comment"] = { italic = true },
+  },
 }
 
 return M

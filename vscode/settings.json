@@ -1,18 +1,29 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "python.analysis.extraPaths": ["~/workspace/cerberus-flask-server/cws"],
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
+  "python.analysis.extraPaths": [
+    "~/workspace/cerberus-flask-server/cws"
+  ],
+  "telemetry.telemetryLevel": "off",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<Leader>", "s"],
-      "after": ["<Enter>"],
+      "before": [
+        "<Leader>",
+        "s"
+      ],
+      "after": [
+        "<Enter>"
+      ],
       "commands": [
         {
           "command": "workbench.action.files.save",
@@ -21,8 +32,13 @@
       ]
     },
     {
-      "before": ["<Leader>", "w"],
-      "after": ["<Enter>"],
+      "before": [
+        "<Leader>",
+        "w"
+      ],
+      "after": [
+        "<Enter>"
+      ],
       "commands": [
         {
           "command": "workbench.action.closeActiveEditor",
@@ -31,8 +47,13 @@
       ]
     },
     {
-      "before": ["<Leader>", "p"],
-      "after": ["<Enter>"],
+      "before": [
+        "<Leader>",
+        "p"
+      ],
+      "after": [
+        "<Enter>"
+      ],
       "commands": [
         {
           "command": "workbench.action.quickOpen",
@@ -41,8 +62,13 @@
       ]
     },
     {
-      "before": ["<Leader>", "h"],
-      "after": ["<Enter>"],
+      "before": [
+        "<Leader>",
+        "h"
+      ],
+      "after": [
+        "<Enter>"
+      ],
       "commands": [
         {
           "command": "workbench.action.focusPreviousGroup",
@@ -51,8 +77,13 @@
       ]
     },
     {
-      "before": ["<Leader>", "l"],
-      "after": ["<Enter>"],
+      "before": [
+        "<Leader>",
+        "l"
+      ],
+      "after": [
+        "<Enter>"
+      ],
       "commands": [
         {
           "command": "workbench.action.focusNextGroup",
@@ -61,7 +92,11 @@
       ]
     },
     {
-      "before": ["<Leader>", "g", "t"],
+      "before": [
+        "<Leader>",
+        "g",
+        "t"
+      ],
       "commands": [
         {
           "command": "editor.action.goToDeclaration",
@@ -76,7 +111,9 @@
   "editor.cursorBlinking": "solid",
   "editor.fontSize": 10,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "editor.lineNumbers": "relative",
@@ -102,5 +139,7 @@
   "editor.acceptSuggestionOnEnter": "off",
   "python.defaultInterpreterPath": "/Users/giontc1/.virtualenvs/save-s3-logs/bin/python",
   "git.ignoreMissingGitWarning": true,
-  "window.zoomLevel": 2
+  "window.zoomLevel": 2,
+  "remote.autoForwardPortsSource": "hybrid",
+  "editor.stickyScroll.enabled": false
 }
