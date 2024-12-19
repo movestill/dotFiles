@@ -45,3 +45,9 @@ nomap("n", "<leader>ff") -- find files
 -- Disable which-key mappings.
 nomap("n", "<Leader>wk")
 nomap("n", "<Leader>wK")
+
+-- Disble nvchad buffer navigation.
+nomap("n", "<C-h>")
+nomap("n", "<C-j>")
+nomap("n", "<C-k>")
+nomap("n", "<C-l>")

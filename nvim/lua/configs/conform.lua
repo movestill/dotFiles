@@ -9,6 +9,9 @@ local options = {
     typescriptreact = {
       { "prettier", "eslint_d" },
     },
+    javascript = {
+      { "prettier", "eslint_d" },
+    },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },

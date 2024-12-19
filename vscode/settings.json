@@ -141,5 +141,6 @@
   "git.ignoreMissingGitWarning": true,
   "window.zoomLevel": 2,
   "remote.autoForwardPortsSource": "hybrid",
-  "editor.stickyScroll.enabled": false
+  "editor.stickyScroll.enabled": false,
+  "workbench.editor.empty.hint": "hidden"
 }

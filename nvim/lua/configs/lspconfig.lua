@@ -7,6 +7,9 @@ local on_attach = function(client, bufnr)
   map("n", "<Leader>ra", function()
     vim.lsp.buf.rename()
   end, { buffer = bufnr, desc = "LSP Rename symbol" })
+
+  -- Remove signature help mapping that interferes with my <leader>s save.
+  vim.keymap.del("n", "<leader>sh")
 end
 
 local on_init = require("nvchad.configs.lspconfig").on_init
